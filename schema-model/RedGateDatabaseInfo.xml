@@ -64,6 +64,9 @@
     </Prefixes>
     <DataWriteAllFilesInOneDirectory>True</DataWriteAllFilesInOneDirectory>
   </WriteToFileOptions>
+  <AnsiNulls>On</AnsiNulls>
+  <QuotedIdentifier>On</QuotedIdentifier>
+  <DatabaseObjectProperties />
   <DataFileSet>
     <Count>0</Count>
   </DataFileSet>
