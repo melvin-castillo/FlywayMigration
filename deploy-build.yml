@@ -30,9 +30,15 @@ trigger:
 # They can be included in the same repository if preferred: templates/vars.yml would work for the file below
 resources:
   repositories:
+<<<<<<< HEAD
     - repository: templates2
       type: git
       name: templates2
+=======
+    - repository: FlywayMigration.git
+      type: git
+      name: FlywayMigration.git
+>>>>>>> 89d04faa08347baf4df33efc73e705420dfaac2c
 
 variables:
 - template: vars.yml@templates                          # templates/vars.yml if kept in same repository
