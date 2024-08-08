@@ -29,11 +29,11 @@ trigger:
       - migrations/*
       
 resources:
-  repositories: 
+  repositories:
     - repository: templates2
       type: git
       name: templates2
- 
+
 variables:
 - template: vars.yml@templates
 
