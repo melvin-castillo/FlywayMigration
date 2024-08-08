@@ -30,9 +30,9 @@ trigger:
       
 resources:
   repositories:
-    - repository: CICD-Template
+    - repository: templates
       type: git
-      name: CICD-Template
+      name: templates
 
 variables:
 - template: vars.yml@templates
