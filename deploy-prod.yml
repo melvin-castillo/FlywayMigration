@@ -31,9 +31,9 @@ trigger:
 resources:
   repositories:
 <<<<<<< HEAD
-    - repository: CICD-Template
+    - repository: FlywayMigration.git
       type: git
-      name: CICD-Template
+      name: FlywayMigration.git
 =======
     - repository: templates
       type: git
