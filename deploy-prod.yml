@@ -30,9 +30,11 @@ trigger:
       
 resources:
   repositories:
+
     - repository: FlywayMigration.git
       type: git
       name: FlywayMigration.git
+
 
 variables:
 - template: vars.yml@templates
