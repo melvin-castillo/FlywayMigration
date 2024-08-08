@@ -21,7 +21,7 @@ name: ADO-self-hosted-pipeline-templatized
 trigger:
   branches:
     include:
-      - development
+      - PruebaBranch
   paths:
     include:
       - migrations/*
