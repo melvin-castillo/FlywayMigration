@@ -45,4 +45,8 @@ stages:
     cleanBuildDB: false
     executeStaticCodeAnalysis: false
     targetCredentials: DestinoFlywayMigrationShadow_Build_Credentials
+<<<<<<< HEAD
     pipelineParameters: FlywayMigration_pipeline_vars
+=======
+    pipelineParameters: FlywayMigration_pipeline_vars
+>>>>>>> bfda420f6b4d083886b2eba78eb59de503d273ac
