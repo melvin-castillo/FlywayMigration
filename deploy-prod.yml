@@ -29,17 +29,11 @@ trigger:
       - migrations/*
       
 resources:
-  repositories:
-<<<<<<< HEAD
-    - repository: FlywayMigration.git
+  repositories: 
+    - repository: templates2
       type: git
-      name: FlywayMigration.git
-=======
-    - repository: templates
-      type: git
-      name: templates
->>>>>>> bfda420f6b4d083886b2eba78eb59de503d273ac
-
+      name: templates2
+ 
 variables:
 - template: vars.yml@templates
 
