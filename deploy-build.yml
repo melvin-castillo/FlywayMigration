@@ -56,7 +56,7 @@ stages:
         steps:
           - checkout: none  # Checks out the current repository
           
-      - template: build.yml@templates2  # Adjust path if needed
+      - template: deploy.yml@templates2  # Adjust path if needed
         parameters:
           stage: Build
           displayName: Deploy Build
