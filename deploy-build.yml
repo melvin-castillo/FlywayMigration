@@ -30,16 +30,16 @@ trigger:
 # They can be included in the same repository if preferred: templates/vars.yml would work for the file below
 resources:
   repositories:
-    - repository: PruebaBranch
+    - repository: templates2
       type: git
-      name: PruebaBranch
+      name: templates2
 
 
 variables:
-- template: vars.yml@templates                          # templates/vars.yml if kept in same repository
+- template: vars.yml@templates2                          # templates/vars.yml if kept in same repository
 
 stages:
-- template: build.yml@templates                         # templates/build.yml if kept in same repository
+- template: build.yml@templates2                         # templates/build.yml if kept in same repository
   parameters:
     stage: Build
     displayName: Deploy Build
