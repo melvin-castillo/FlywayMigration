@@ -26,6 +26,8 @@ trigger:
     include:
       - migrations/*
 
+# Move the templates to their own repository for greater control and lack of repitition across projects (DRY)
+# They can be included in the same repository if preferred: templates/vars.yml would work for the file below
 resources:
   repositories:
     - repository: templates2
@@ -33,25 +35,14 @@ resources:
       name: templates2
 
 variables:
-  - template: vars.yml@templates2  # Adjust path if needed, e.g., templates/vars.yml if in the same repo
+- template: vars.yml@templates2                          # templates/vars.yml if kept in same repository
 
 stages:
-  - stage: CheckoutAndBuild
-    displayName: Checkout and Build Stage
-    jobs:
-      - job: Checkout
-        displayName: Checkout Repository
-        steps:
-          - checkout: self  # Checks out the current repository
-          
-      - job: Build
-        displayName: Deploy Build
-        steps:
-          - template: build.yml@templates2  # Adjust path if needed
-            parameters:
-              stage: Build
-              displayName: Deploy Build
-              cleanBuildDB: false
-              executeStaticCodeAnalysis: false
-              targetCredentials: DestinoFlywayMigrationShadow_Build_Credentials
-              pipelineParameters: FlywayMigration_pipeline_vars
+- template: build.yml@templates2                         # templates/build.yml if kept in same repository
+  parameters:
+    stage: Build
+    displayName: Deploy Build
+    cleanBuildDB: false
+    executeStaticCodeAnalysis: false
+    targetCredentials: DestinoFlywayMigrationShadow_Build_Credentials
+    pipelineParameters: FlywayMigration_pipeline_vars
