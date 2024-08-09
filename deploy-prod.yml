@@ -30,12 +30,12 @@ trigger:
       
 resources:
   repositories: 
-    - repository: FlywayMigrationlocal
+    - repository: templates2
       type: git
-      name: FlywayMigrationlocal
+      name: templates2
  
 variables:
-- template: vars.yml@templates
+- template: vars.yml@templates2
 
 stages:
 
@@ -48,7 +48,7 @@ stages:
 #     targetCredentials: newworlddb_test_credentials
 #     pipelineParameters: newworlddb_pipeline_vars
 
-- template: deploy.yml@templates                        # templates/deploy.yml if kept in same repository
+- template: deploy.yml@templates2                        # templates/deploy.yml if kept in same repository
   parameters:
     stage: Test
     displayName: Deploy Test
@@ -58,7 +58,7 @@ stages:
     targetCredentials: DestinoFlywayMigration_test_Credentials
     pipelineParameters: FlywayMigration_pipeline_vars
 
-- template: deploy.yml@templates                        # templates/deploy.yml if kept in same repository
+- template: deploy.yml@templates2                        # templates/deploy.yml if kept in same repository
   parameters:
     stage: Prod1
     dependsOn: Test
