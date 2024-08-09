@@ -34,6 +34,10 @@ resources:
       type: git
       name: templates2
 
+steps:
+- checkout: self
+- checkout: templates2
+  path: templates2
 
 variables:
 - template: vars.yml@templates2                          # templates/vars.yml if kept in same repository
