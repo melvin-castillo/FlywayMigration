@@ -1,6 +1,7 @@
 CREATE TABLE [dbo].[Table_1]
 (
-[a] [nchar] (10) NULL,
-[b] [nchar] (10) NULL
+[campo1] [nchar] (10) NULL,
+[campo2] [nchar] (10) NULL,
+[campo3] [nchar] (10) NULL
 )
 GO
