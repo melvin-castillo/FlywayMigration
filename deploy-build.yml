@@ -34,18 +34,33 @@ resources:
       type: git
       name: templates2
 
-steps:
-- checkout: none
-
 variables:
 - template: vars.yml@templates2                          # templates/vars.yml if kept in same repository
 
+# stages:
+# - template: build.yml@templates2                         # templates/build.yml if kept in same repository
+#   parameters:
+#     stage: Build
+#     displayName: Deploy Build
+#     cleanBuildDB: false
+#     executeStaticCodeAnalysis: false
+#     targetCredentials: DestinoFlywayMigrationShadow_Build_Credentials
+#     pipelineParameters: FlywayMigration_pipeline_vars
+
 stages:
-- template: build.yml@templates2                         # templates/build.yml if kept in same repository
-  parameters:
-    stage: Build
-    displayName: Deploy Build
-    cleanBuildDB: false
-    executeStaticCodeAnalysis: false
-    targetCredentials: DestinoFlywayMigrationShadow_Build_Credentials
-    pipelineParameters: FlywayMigration_pipeline_vars
+  - stage: CheckoutAndBuild
+    displayName: Checkout and Build Stage
+    jobs:
+      - job: Checkout
+        displayName: Checkout Repository
+        steps:
+          - checkout: none  # Checks out the current repository
+          
+      - template: build.yml@templates2  # Adjust path if needed
+        parameters:
+          stage: Build
+          displayName: Deploy Build
+          cleanBuildDB: false
+          executeStaticCodeAnalysis: false
+          targetCredentials: DestinoFlywayMigrationShadow_Build_Credentials
+          pipelineParameters: FlywayMigration_pipeline_vars
